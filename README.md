@@ -13,6 +13,8 @@ A robotics dog is a type of robot that combines the fields of electrical enginee
 - Mechanical
   - Determine what type of filament for the final product
   - Determine what type of [infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/)
+  - What type of leg (how many degree of freedom)
+  - Limit the weight of the dog between 10 to 25 pounds
   - Determine the environment the dog will be in
     - Terrain
     - Environment weather, temperature, and humidity
@@ -32,6 +34,8 @@ A robotics dog is a type of robot that combines the fields of electrical enginee
   - Temperature management
   - Airflow
   - Simple and Unique design
+  - May use a raspberry pi board, pynq board, or nano jetson
+  - How to save enough power 
   
 
 ### Electrical Point of View
