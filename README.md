@@ -15,6 +15,7 @@ A robotics dog is a type of robot that combines the fields of electrical enginee
   - Determine what type of [infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/)
   - What type of leg (how many degree of freedom)
   - Limit the weight of the dog between 10 to 25 pounds
+  - What happen if all the weight is on three legs or possibly two legs? How will the weak points of the filament or chasis will be maintain or stress free
   - Determine the environment the dog will be in
     - Terrain
     - Environment weather, temperature, and humidity
@@ -40,7 +41,7 @@ A robotics dog is a type of robot that combines the fields of electrical enginee
 
 ### Electrical Point of View
 
-One of the main issues will be the batteries due to how much power is needed and the amount of batteries to make a dog function for a while. 
+One of the main issues will be the servo motors due to how much power to drive, weight, and the load it can load. If each leg has 2 servo motors then powering the servos will be a problematic. Not only that, the weight of the servos and the battery will be greatly impact the weight and depending on the size of the dog will limit what type of servo's can be used. 
 
 
 
