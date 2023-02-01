@@ -9,7 +9,9 @@ A robotics dog is a type of robot that combines the fields of electrical enginee
   - Dectect objects such as 2D and/or 3D object 
   - Determine the distance of an object
   - If possible create an algorithm to find the main host and follow the host using computer vision (host must use distinct color or a local node such as a esp32 or pico w)
-  - Control all servo motors with limiting of degree
+  - Control all servo motors that will be semi controlled by the camera's
+  - Ultrasonic will be used to verify if the dog is near a wall (must be a flat surface and help the camera to detect different levels of surfaces)
+  - The master board will either be a raspberry pi 4, PYNQ board, or a nano jetson board. All boards are capable to have slave boards if needed
 - Mechanical
   - Determine what type of filament for the final product
   - Determine what type of [infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/)
@@ -29,9 +31,10 @@ A robotics dog is a type of robot that combines the fields of electrical enginee
   - Electrical components for the dog
     - Batteries
     - Voltage regulator
-    - servo's
+    - servo's or brushless motors
     - camera
     - wiring
+  - Must have a port to connect an LCD with a few buttons to read live data from the dog if wireless communication fails
   - Temperature management
   - Airflow
   - Simple and Unique design
