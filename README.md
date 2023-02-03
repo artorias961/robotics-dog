@@ -50,6 +50,7 @@ One of the main issues will be the servo motors due to how much power to drive, 
 
 ### Hardware Point of View
 
+One mechanical concern lies with the design of the dogs legs. Any engineering project aims to be efficient with resources given certain goals and parameters. The design for structure of the dog’s legs will determine how much material is used, how much weight they can support, the material’s performance in different environments, and the tasks it can assist in accomplishing. We have a few parameters in mind to guide certain design choices, but we will likely elaborate more on these design choices throughout the project. 
 
 # Reference
 - 3D Printer Related
