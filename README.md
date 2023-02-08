@@ -6,12 +6,18 @@ The purpose of this project is to create a tour bot that will guide Cal State LA
 
 # More In Depth
 
+x means to specific
+
 - Software
-  - Use computer vision to detect color to determine different objects of color
-  - Dectect objects such as 2D and/or 3D object 
-  - Determine the distance of an object
-  - If possible create an algorithm to find the main host and follow the host using computer vision (host must use distinct color or a local node such as a esp32 or pico w)
-  - Control all servo motors that will be semi controlled by the camera's
+  - x Use computer vision to detect color to determine different objects of color
+  - Dog must be set in interior setting
+  - Dog must avoid objects on the floor
+    - x Dectect objects such as 2D and/or 3D object
+    - Determine if the object is not the wall, floor, or any flat surfaces
+    - Determine the distance of an object
+  - Dog must be able to follow owner
+    - x If possible create an algorithm to find the main host and follow the host using computer vision or [beacon](https://kontakt.io/what-is-a-beacon/)
+  - x Control all servo motors that will be semi controlled by the camera's
   - Ultrasonic will be used to verify if the dog is near a wall (must be a flat surface and help the camera to detect different levels of surfaces)
   - The master board will either be a raspberry pi 4, PYNQ board, or a nano jetson board. All boards are capable to have slave boards if needed
 - Mechanical
