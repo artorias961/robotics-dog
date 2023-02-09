@@ -9,23 +9,28 @@ The purpose of this project is to create a tour bot that will guide Cal State LA
 x means to specific
 
 - Software
-  - x Use computer vision to detect color to determine different objects of color
   - Dog must be set in interior setting
   - Dog must avoid objects on the floor
-    - x Dectect objects such as 2D and/or 3D object
     - Determine if the object is not the wall, floor, or any flat surfaces
+        - x Use computer vision to detect color to determine different objects of color
+        - x Dectect objects such as 2D and/or 3D object
     - Determine the distance of an object
+        - Ultrasonic will be used to verify if the dog is near a wall (must be a flat surface and help the camera to detect different levels of surfaces)
+    - Dog must make sure won't hit the object 
+        - x Control all servo motors that will be semi controlled by the camera's
   - Dog must be able to follow owner
     - x If possible create an algorithm to find the main host and follow the host using computer vision or [beacon](https://kontakt.io/what-is-a-beacon/)
-  - x Control all servo motors that will be semi controlled by the camera's
-  - Ultrasonic will be used to verify if the dog is near a wall (must be a flat surface and help the camera to detect different levels of surfaces)
-  - The master board will either be a raspberry pi 4, PYNQ board, or a nano jetson board. All boards are capable to have slave boards if needed
+  - x The master board will either be a raspberry pi 4, PYNQ board, or a nano jetson board. All boards are capable to have slave boards if needed
+    - Once have all the requirements and specifications, then technology mapping
+        - Find the technology that will help us solve the problem (meets specification) 
 - Mechanical
-  - Determine what type of filament for the final product
-  - Determine what type of [infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/)
-  - What type of leg (how many degree of freedom)
-  - Limit the weight of the dog between 10 to 25 pounds
-  - What happen if all the weight is on three legs or possibly two legs? How will the weak points of the filament or chasis will be maintain or stress free
+  - Dog must weigh 25 pounds at most
+  - Dog must be stable while in movement using all four legs (creep like a donkey)
+    - What happen if all the weight is on three legs or possibly two legs? 
+    - How will the weak points of the filament or chasis will be maintain or stress free    
+    -  x Determine what type of filament for the final product
+    -  x Determine what type of [infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/)
+    -  x What type of leg (how many degree of freedom)
   - Determine the environment the dog will be in
     - Terrain
     - Environment weather, temperature, and humidity
