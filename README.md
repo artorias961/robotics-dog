@@ -10,15 +10,15 @@ x means to specific
   - Dog must be set in interior setting
   - Dog must avoid objects on the floor
     - Determine if the object is not the wall, floor, or any flat surfaces
-        - x Use computer vision to detect color to determine different objects of color
-        - x Dectect objects such as 2D and/or 3D object
+        - Identify the shadows/color of an object
+        - Identify an object from 2D or 3D
     - Determine the distance of an object
         - Ultrasonic will be used to verify if the dog is near a wall (must be a flat surface and help the camera to detect different levels of surfaces)
     - Dog must make sure won't hit the object 
-        - x Control all servo motors that will be semi controlled by the camera's
+        - Use kinematic model to identify walking motion and computer vision to avoid obstacles
   - Dog must be able to follow owner
     - x If possible create an algorithm to find the main host and follow the host using computer vision or [beacon](https://kontakt.io/what-is-a-beacon/)
-  - x The master board will either be a raspberry pi 4, PYNQ board, or a nano jetson board. All boards are capable to have slave boards if needed
+  - Dog must use a microprocessor to control all communications for the system
     - Once have all the requirements and specifications, then technology mapping
         - Find the technology that will help us solve the problem (meets specification) 
 - Mechanical
@@ -55,10 +55,14 @@ x means to specific
     - Brushless Motors
     - Ultrasonic Sensor
     - Hall Effect Sensor
-    - Camera
+    - Stereo Sensor
+    - Speaker
+    - Bluetooth Module
+    - WiFi Module
     - Temperature management sensor
     - LiDAR
     - LCD 
+    - Perf Boards
  
   
 
