@@ -41,18 +41,27 @@ x means to specific
     - Density
   - Dimension of the dog
 - Electrical
-  - Electrical components for the dog
+  - Dog may contain the following components:
+    - Microprocessor
+      - Nano Jetson
+      - Raspberry Pi
+      - PYNQ V2
+    - Microcontrollers
+      - Teensy 4.1
+      - Raspberry Pi Pico
+      - Arduino Nano 
+      - Seeed Studio XIAO
     - Batteries
-    - Voltage regulator
-    - servo's or brushless motors
-    - camera
-    - wiring
-  - Must have a port to connect an LCD with a few buttons to read live data from the dog if wireless communication fails
-  - Temperature management
-  - Airflow
-  - Simple and Unique design
-  - May use a raspberry pi board, pynq board, or nano jetson
-  - How to save enough power 
+    - Voltage Regulator
+    - Servo Motors
+    - Brushless Motors
+    - Ultrasonic Sensor
+    - Hall Effect Sensor
+    - Camera
+    - Temperature management sensor
+    - LiDAR
+    - LCD 
+ 
   
 
 ### Electrical Point of View
