@@ -6,7 +6,7 @@ The purpose of this project is to create a tour bot that will guide Cal State LA
 
 x means to specific
 
-- Software
+- Electronics
   - Dog must be set in interior setting
   - Dog must avoid objects on the floor
     - Determine if the object is not the wall, floor, or any flat surfaces
@@ -21,18 +21,8 @@ x means to specific
   - Dog must use a microprocessor to control all communications for the system
     - Once have all the requirements and specifications, then technology mapping
         - Find the technology that will help us solve the problem (meets specification) 
-- Mechanical
-  - Dog must weigh 25 pounds at most
-    - Dimensions will depend on maximum load (dog's weight)
-  - Dog must be able to travel indoors on flat surfaces
-    - Dog must be stable while in movement
-    - Dog must be able to support itself while 1 or 2 legs are off the ground, depending on gait (crawl gait for now)
-    - Body's casing will be light and will offer minimal protection from the elements    
-    - Limbs must be able to resist failure under load (dog's weight)
-      - [Infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/) and density will vary depending on load at a given point
-      - Limbs with "feet" will contain plastic or rubber material for friction
-    - Legs will work with 3 DOF
-- Electrical
+  - Dog battery life must idle must at least 45 minutes of battery life and in motion Dog must maintain 15 minutes
+  - Dog eletrical components must be rated at IP66
   - Dog may contain the following components:
     - Microprocessor
       - Nano Jetson
@@ -57,6 +47,18 @@ x means to specific
     - LiDAR
     - LCD 
     - Perf Boards
+- Mechanical
+  - Dog must weigh 25 pounds at most
+    - Dimensions will depend on maximum load (dog's weight)
+  - Dog must be able to travel indoors on flat surfaces
+    - Dog must be stable while in movement
+    - Dog must be able to support itself while 1 or 2 legs are off the ground, depending on gait (crawl gait for now)
+    - Body's casing will be light and will offer minimal protection from the elements    
+    - Limbs must be able to resist failure under load (dog's weight)
+      - [Infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/) and density will vary depending on load at a given point
+      - Limbs with "feet" will contain plastic or rubber material for friction
+    - Legs will work with 3 DOF
+  
  
   
 
