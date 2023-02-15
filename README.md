@@ -23,21 +23,15 @@ x means to specific
         - Find the technology that will help us solve the problem (meets specification) 
 - Mechanical
   - Dog must weigh 25 pounds at most
-  - Dog must be stable while in movement using all four legs (creep like a donkey)
-    - What happen if all the weight is on three legs or possibly two legs? 
-    - How will the weak points of the filament or chasis will be maintain or stress free    
-    -  x Determine what type of filament for the final product
-    -  x Determine what type of [infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/)
-    -  x What type of leg (how many degree of freedom)
-  - Determine the environment the dog will be in
-    - Terrain
-    - Environment weather, temperature, and humidity
-  - Traction for the feet
-    - What material
-  - Plastic casing for outside environment or possibly falling down 
-    - weight
-    - Density
-  - Dimension of the dog
+    - Dimensions will depend on maximum load (dog's weight)
+  - Dog must be able to travel indoors on flat surfaces
+    - Dog must be stable while in movement
+    - Dog must be able to support itself while 1 or 2 legs are off the ground, depending on gait (crawl gait for now)
+    - Body's casing will be light and will offer minimal protection from the elements    
+    - Limbs must be able to resist failure under load (dog's weight)
+      - [Infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/) and density will vary depending on load at a given point
+      - Limbs with "feet" will contain plastic or rubber material for friction
+    - Legs will work with 3 DOF
 - Electrical
   - Dog may contain the following components:
     - Microprocessor
