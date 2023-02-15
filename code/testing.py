@@ -1,8 +1,7 @@
 import numpy as np
 import cv2
 
-
-class GetImage:
+class DetectObject:
     def __init__(self):
         self.is_camera_detected = False
         self.frame_image = list()
@@ -47,5 +46,64 @@ class GetImage:
             self.threshold_frame.append(temp_image)
 
 
+class ColorDetection:
+    def __init__(self):
+        self.image = np.ndarray
+        self.hsv_image = np.ndarray
+        self.hsl_image = np.ndarray
+        self.thresh_hsv_image = np.ndarray
+        self.thresh_hsl_image = np.ndarray
+
+    def find_directory(self):
+        """
+        Finds the image from the given directory
+
+        :return: an image
+        """
+        # Read the image from the given directory
+        self.image = cv2.imread(r"..\image_folder\butterflies.jpg")
+
+    def convert_color_format(self):
+        """
+        Color space conversion to HSL or HSV to identfy a color since color information is define by Hue, Saturation,
+        and Value/Lightness Components
+
+        :return: a converted image
+        """
+        # Converting the image to HSV (Hue, Saturation, and Value)
+        self.hsv_image = cv2.cvtColor(self.image, cv2.COLOR_BGR2HSV)
+
+        # Converting the image to HSL (Hue, Saturation, and Lightness)
+        self.hsl_image = cv2.cvtColor(self.image, cv2.COLOR_BGR2HLS)
+
+    def thresholding(self):
+        # Getting the threshold of hsv image
+        self.thresh_hsv_image = cv2.threshhold(self.image, thresh=127, maxval=255, type=cv2.THRESH_BINARY)
+
+        # Getting the threshold of hsl image
+        self.thresh_hsl_image = cv2.threshhold(self.image, thresh=127, maxval=255, type=cv2.THRESH_BINARY)
+
+    def get_histrogram(self):
+        pass
+
+    def load_image(self):
+        """
+        Displays an image
+
+        :return: N/A
+        """
+        # Load the image
+        cv2.imshow("A Image", self.hsv_image)
+        cv2.waitKey(0)
+
+    def main(self):
+        self.find_directory()
+        self.convert_color_format()
+        #self.thresholding()
+        self.load_image()
+
+
 if __name__ == '__main__':
-    gi = GetImage()
+    cd = ColorDetection()
+    cd.main()
+
