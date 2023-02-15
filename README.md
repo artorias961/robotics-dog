@@ -17,7 +17,7 @@ x means to specific
     - Dog must make sure won't hit the object 
         - Use kinematic model to identify walking motion and computer vision to avoid obstacles
   - Dog must be able to follow owner
-    - x If possible create an algorithm to find the main host and follow the host using computer vision or [beacon](https://kontakt.io/what-is-a-beacon/)
+    - Dog may use the possible algorithm called [beacon](https://kontakt.io/what-is-a-beacon/)
   - Dog must use a microprocessor to control all communications for the system
     - Once have all the requirements and specifications, then technology mapping
         - Find the technology that will help us solve the problem (meets specification) 
