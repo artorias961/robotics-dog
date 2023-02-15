@@ -53,11 +53,13 @@ x means to specific
   - Dog must be able to travel indoors on flat surfaces
     - Dog must be stable while in movement
     - Dog must be able to support itself while 1 or 2 legs are off the ground, depending on gait (crawl gait for now)
-    - Body's casing will be light and will offer minimal protection from the elements    
+    - Body's casing will be light and will offer minimal protection from the elements
+      - The dog will not be waterproof and will be rated IP66  
     - Limbs must be able to resist failure under load (dog's weight)
       - [Infill patterns](https://all3dp.com/2/cura-infill-patterns-all-you-need-to-know/) and density will vary depending on load at a given point
       - Limbs with "feet" will contain plastic or rubber material for friction
     - Legs will work with 3 DOF
+      - 2 servos at the shoulders will be responsible 2 DOF while 1 at the knees will provide the third
   
  
   
