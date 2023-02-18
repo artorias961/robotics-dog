@@ -51,6 +51,14 @@ class ColorDetection:
     def __init__(self):
         # General
         self.image = np.ndarray
+
+        # Resizing
+        self.x_resize = None
+        self.y_resize = None
+        self.scale_percent = 60
+        self.resize_image = np.ndarray
+
+        # Histogram Setup
         self.image_width = int
         self.image_height = int
         self.b_channel = np.ndarray
@@ -59,6 +67,11 @@ class ColorDetection:
 
         # Histogram Image
         self.histo_image = np.ndarray
+        self.bin_width = int
+        self.histo_size = int
+        self.b_histo = np.ndarray
+        self.g_histo = np.ndarray
+        self.r_histo = np.ndarray
 
         # For Gray
         self.gray_image = np.ndarray
@@ -84,6 +97,9 @@ class ColorDetection:
         """
         # Read the image from the given directory
         self.image = cv2.imread(r"..\image_folder\butterflies.jpg")
+        # self.image = cv2.imread(r"..\image_folder\artyGRB.png")
+        # self.image = cv2.imread(r"..\image_folder\131_255_69_98_149_255_255_10_197.png")
+        # self.image = cv2.imread(r"..\image_folder\test_blue.png")
 
     def image_information(self):
         """
@@ -93,6 +109,12 @@ class ColorDetection:
         """
         # Getting the height, width, and total channels
         self.image_height, self.image_width, _ = self.image.shape
+
+        # Creating the size of the histogram
+        self.histo_size = 256
+
+        # Creating an evenly window section
+        self.bin_width = int(round(self.image_width / self.histo_size))
 
     def convert_color_format(self):
         """
@@ -111,6 +133,11 @@ class ColorDetection:
         self.hsl_image = cv2.cvtColor(self.image, cv2.COLOR_BGR2HLS)
 
     def thresholding(self):
+        """
+        Gets the binary values of the image
+
+        :return: a threshold image
+        """
         # Getting the threshold of gray image
         self.thresh_gray_image = cv2.threshold(self.gray_image, thresh=127, maxval=255, type=cv2.THRESH_BINARY)
 
@@ -130,12 +157,14 @@ class ColorDetection:
         # Normalize the brightness and increases the contrast of the image
         self.histo_gray_equalization = cv2.equalizeHist(self.gray_image)
 
-    def split_bgr_image(self):
+    def histogram_calculation(self):
+        """
+        Splits the image into three channels then proceed to calculate the histograms
+
+        :return: calculated histogram
+        """
         # Splitting the image into 3 variables into one
         bgr_image = cv2.split(self.image)
-
-        # Creating the size of the histogram
-        histo_size = 256
 
         # Creating the range of the histogram (the upper is exclusive)
         histo_range = (0, 256)
@@ -144,20 +173,74 @@ class ColorDetection:
         accumulate_logic = False
 
         # Splitting the BGR channels into their own variable
-        self.b_channel = (bgr_image, [0], None, [histo_size], histo_range, accumulate_logic)
-        self.g_channel = (bgr_image, [1], None, [histo_size], histo_range, accumulate_logic)
-        self.r_channel = (bgr_image, [2], None, [histo_size], histo_range, accumulate_logic)
+        self.b_channel = cv2.calcHist(bgr_image, [0], None, [self.histo_size], histo_range, accumulate_logic)
+        self.g_channel = cv2.calcHist(bgr_image, [1], None, [self.histo_size], histo_range, accumulate_logic)
+        self.r_channel = cv2.calcHist(bgr_image, [2], None, [self.histo_size], histo_range, accumulate_logic)
+
+    def histogram_normalization(self):
+        """
+        To draw the histogram, the data needs to be normalized so its values fall in the range indicated by
+        the parameters entered
+
+
+        :return: normalize dataset
+        """
+        # Normalize the dataset
+        self.b_histo = cv2.normalize(self.b_channel, self.b_channel, alpha=0, beta=self.image_height,
+                                     norm_type=cv2.NORM_MINMAX)
+        self.g_histo = cv2.normalize(self.g_channel, self.g_channel, alpha=0, beta=self.image_height,
+                                     norm_type=cv2.NORM_MINMAX)
+        self.r_histo = cv2.normalize(self.r_channel, self.r_channel, alpha=0, beta=self.image_height,
+                                     norm_type=cv2.NORM_MINMAX)
 
     def create_histogram_image(self):
-        pass
+        # Create an empty image
+        self.histo_image = np.zeros((self.image_height, self.image_width, 3), dtype=np.uint8)
 
-    def histogram_calculation(self):
+        # Creating a for loop to iterate every intensity value of BGR
+        for index in range(1, self.histo_size):
+            # Create a line for BLUE
+            self.histo_image = cv2.line(self.histo_image,
+                                        (self.bin_width * (index - 1),
+                                         self.image_height - int(self.b_histo[index - 1])),
+                                        (self.bin_width * index,
+                                         self.image_height - int(self.b_histo[index])),
+                                        (255, 0, 0),
+                                        thickness=2)
+
+            # Create a line for GREEN
+            self.histo_image = cv2.line(self.histo_image,
+                                        (self.bin_width * (index - 1),
+                                         self.image_height - int(self.g_histo[index - 1])),
+                                        (self.bin_width * index,
+                                         self.image_height - int(self.g_histo[index])),
+                                        (0, 255, 0),
+                                        thickness=2)
+
+            # Create a line for RED
+            self.histo_image = cv2.line(self.histo_image,
+                                        (self.bin_width * (index - 1),
+                                         self.image_height - int(self.r_histo[index - 1])),
+                                        (self.bin_width * index,
+                                         self.image_height - int(self.r_histo[index])),
+                                        (0, 0, 255),
+                                        thickness=2)
+
+    def resize(self):
         """
+        Resizes the image
 
-
-        :return:
+        :return: resize image
         """
-        pass
+        # Getting the new width and new height
+        new_width = int(self.image_height * self.scale_percent / 100)
+        new_height = int(self.image_height * self.scale_percent / 100)
+
+        # Getting the dimension of the image
+        dim = (new_width, new_height)
+
+        # Resized image
+        self.resize_image = cv2.resize(self.histo_image, dim, interpolation=cv2.INTER_AREA)
 
     def load_image(self):
         """
@@ -166,7 +249,7 @@ class ColorDetection:
         :return: N/A
         """
         # Load the image
-        cv2.imshow("A Image", self.histo_gray_equalization)
+        cv2.imshow("A Image", self.resize_image)
         cv2.waitKey(0)
 
     def main(self):
@@ -175,12 +258,17 @@ class ColorDetection:
         self.image_information()
         self.convert_color_format()
         self.thresholding()
-        self.split_bgr_image()
+
+        # Find Histogram
+        self.histogram_calculation()
+        self.histogram_normalization()
+        self.create_histogram_image()
 
         # For Gray
         self.histogram_equalization()
 
         # Load Image
+        self.resize()
         self.load_image()
 
 
