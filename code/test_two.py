@@ -59,8 +59,8 @@ if __name__ == "__main__":
         cie_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2Lab)
 
         # Applying histogram
-        hsv_frame_split = cv2.split(hsv_frame)
-        hsl_frame_split = cv2.split(hsl_frame)
+        hsv_frame = cv2.split(hsv_frame)
+        hsl_frame = cv2.split(hsl_frame)
         histo_range = (0, 256)
         accumulate_logic = False
         frame_height, frame_width, _ = frame.shape
@@ -68,12 +68,12 @@ if __name__ == "__main__":
         bin_width = int(round(frame_width / histo_size))
 
         # Split channels
-        h_frame_hsv = cv2.calcHist(hsv_frame_split, [0], None, [histo_size], histo_range, accumulate_logic)
-        s_frame_hsv = cv2.calcHist(hsv_frame_split, [1], None, [histo_size], histo_range, accumulate_logic)
-        v_frame_hsv = cv2.calcHist(hsv_frame_split, [2], None, [histo_size], histo_range, accumulate_logic)
-        h_frame_hsl = cv2.calcHist(hsl_frame_split, [0], None, [histo_size], histo_range, accumulate_logic)
-        s_frame_hsl = cv2.calcHist(hsl_frame_split, [1], None, [histo_size], histo_range, accumulate_logic)
-        l_frame_hsl = cv2.calcHist(hsl_frame_split, [2], None, [histo_size], histo_range, accumulate_logic)
+        h_frame_hsv = cv2.calcHist(hsv_frame, [0], None, [histo_size], histo_range, accumulate_logic)
+        s_frame_hsv = cv2.calcHist(hsv_frame, [1], None, [histo_size], histo_range, accumulate_logic)
+        v_frame_hsv = cv2.calcHist(hsv_frame, [2], None, [histo_size], histo_range, accumulate_logic)
+        h_frame_hsl = cv2.calcHist(hsl_frame, [0], None, [histo_size], histo_range, accumulate_logic)
+        s_frame_hsl = cv2.calcHist(hsl_frame, [1], None, [histo_size], histo_range, accumulate_logic)
+        l_frame_hsl = cv2.calcHist(hsl_frame, [2], None, [histo_size], histo_range, accumulate_logic)
 
         # Normalization
         h_histo_hsv = cv2.normalize(h_frame_hsv, h_frame_hsv, alpha=0, beta=frame_height, norm_type=cv2.NORM_MINMAX)
@@ -144,14 +144,12 @@ if __name__ == "__main__":
                                        thickness=2)
 
         # Stacking the images
-        images_one = stack_images(0.7, ([hsv_frame, blank_frame_one], [hsl_frame, blank_frame_two]))
+        # images_one = stack_images(0.7, ([hsv_frame, hsv_frame], [hsl_frame, hsl_frame]))
         # images_two = stack_images(0.7, ([blank_frame_one], [blank_frame_two]))
-        images = stack_images(0.7, ([frame, gray_frame], [hsv_frame, hsl_frame]))
 
         # Display the resulting frame
-        # cv2.imshow('HSV (top) vs HSL (bottom)', blank_frame_two)
-        cv2.imshow('HSV (top) vs HSL (bottom)', images_one)
-
+        cv2.imshow('HSV (top) vs HSL (bottom)', blank_frame_two)
+        # cv2.imshow('HSV (top) vs HSL (bottom)', images_two)
         # the 'q' button is set as the
         # quitting button you may use any
         # desired button of your choice
