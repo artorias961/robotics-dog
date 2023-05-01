@@ -58,6 +58,21 @@ if __name__ == "__main__":
         hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
         hsl_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
         cie_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2Lab)
+        frame_canny = cv2.Canny(gray_frame, 50, 50)
+
+        # Applying Gaussian Blur
+        blur_frame = cv2.GaussianBlur(gray_frame, (5, 5), 0)
+
+        # Getting the threshold
+        frame_threshold_ret, frame_threshold = cv2.threshold(gray_frame, thresh=127, maxval=255, type=cv2.THRESH_BINARY)
+
+        # Find the contours
+        contours, hierarchy = cv2.findContours(frame_threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+        # Draw contours
+        frame_copy = frame
+        draw_contours = cv2.drawContours(frame_copy, contours, -1, (0,255,0), 3)
+
 
         # Applying histogram
         hsv_frame_split = cv2.split(hsv_frame)
@@ -148,6 +163,9 @@ if __name__ == "__main__":
         images_one = stack_images(0.7, ([hsv_frame, blank_frame_one], [hsl_frame, blank_frame_two]))
         # images_two = stack_images(0.7, ([blank_frame_one], [blank_frame_two]))
         images = stack_images(0.7, ([frame, gray_frame], [hsv_frame, hsl_frame]))
+        images_one = stack_images(0.7, ([hsv_frame, hsl_frame], [frame_threshold, frame_canny]))
+        images_two = stack_images(0.7, ([frame, gray_frame], [blur_frame, draw_contours]))
+
 
         # Display the resulting frame
         # cv2.imshow('HSV (top) vs HSL (bottom)', blank_frame_two)

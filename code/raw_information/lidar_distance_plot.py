@@ -27,7 +27,6 @@ def calculate_lidar_distance():
     # Print the error percent
     print(error_percent_list)
 
-
     # Plot the data (x, y)
     plt.plot(x_reference, ruler_millimeters, '-b', label='Reference Distance')
     plt.plot(x_reference, lidar_dist, '-r', label='Lidar Actual Distance')
