@@ -1,0 +1,52 @@
+##This is the installation guide for installing ROS 2 Humble BASE on a Raspberry Pi 4 Model B running 
+#Ubuntu 22.04.2 LTS (64 BIT) 
+
+#First, make sure your system is up to date 
+
+sudo apt update 
+
+#Then 
+
+sudo apt upgrade 
+
+#Check the locale of the system to make sure they are configured to UTF-8
+
+locale  # This is a check for UTF-8, if not UTF-8 then run the following lines, else continue to next 
+        #steps
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings and ensure UTF-8 is configured 
+
+#Next, make sure that the universe repository in UBUNTU is enabled:
+
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+
+#Add ROS 2 GPG key: 
+
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o 
+/usr/share/keyrings/ros-archive-keyring.gpg
+
+#Add the ROS 2 repository to your source list 
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] 
+http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" 
+| sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+#Install the ROS 2 Packages 
+#First update the system 
+
+sudo apt update 
+sudo apt upgrade 
+
+#Install ROS-BASE to the system (Bare Bones, NO GUI) 
+
+sudo apt install ros-humble-ros-base
+
+#Install ROS 2 Developer Tools 
+
+sudo apt install ros-dev-tools
