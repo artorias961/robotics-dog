@@ -1,1 +1,36 @@
+from smbus2 import SMBus #Importing I2C communication to the raspberry pi
+import time
+
+addr = 0x08 #bus address
+bus = SMBus(1) # indicate /dev/ic2-1
+
+#-------------------------Function--------------------------------
+
+print("Tesing I2C communication between Raspberry pi and Arduino Uno")
+num = 1
+pos = 0
+angle_pos = 1
+
+while num == 1:
+    while pos < 121:
+        #time.sleep(0.01)
+        pos += angle_pos
+        bus.write_byte(addr, pos)
+
+        b = bus.read_byte(addr, 0)
+        while b == None:
+            print(".\n")
+        print("Feedback Pos = ")
+        print(b)
+
+    while pos > -1:
+        #time.sleep(0.01)
+        pos -= angle_pos
+        bus.write_byte(addr, pos)
+
+        b = bus.read_byte(addr, 0)
+        while b == None:
+            print(".\n")
+        print("Feedback Pos = ")
+        print(b)
 
