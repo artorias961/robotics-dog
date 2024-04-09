@@ -18,3 +18,9 @@ This project aims to develop a guided tour robot designed to assist individuals 
 
 This tour robot is specially designed to make the Cal State LA campus more accessible to people with disabilities, offering a reliable and safe way to explore and navigate the university's facilities.
 
+# Our Sponsors
+
+This project has been graciously supported by ***IT Faculty Sergio Marquez from Cal State LA***, ***Cal State LA ECST CircuitSpace IRA Funds IR472***, ***Biomedical Engineering Society***, and ***MATHEMATICS, ENGINEERING SCIENCE ACHIEVEMENT (MESA)*** whose generous contributions have been instrumental in bringing our vision to life. 
+
+
+We would also like to extend our deepest gratitude to the faculties at Cal State LA, Electrical Engineering Department. Their invaluable guidance, expertise, and unwavering support have been pivotal to the success of our project. The collaboration and insights provided by these dedicated professionals have greatly enriched our journey and contributed significantly to achieving our goals
