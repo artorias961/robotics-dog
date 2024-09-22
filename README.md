@@ -24,3 +24,11 @@ This project has been graciously supported by ***IT Faculty Sergio Marquez from 
 
 
 We would also like to extend our deepest gratitude to the faculties at Cal State LA, Electrical Engineering Department. Their invaluable guidance, expertise, and unwavering support have been pivotal to the success of our project. The collaboration and insights provided by these dedicated professionals have greatly enriched our journey and contributed significantly to achieving our goals
+
+
+# Early Contributors
+We would like to acknowledge the key individuals who played an essential role in the early stages of this project. Special recognition goes to [Christopher Morales](https://christopher-morales.vercel.app) (EE graduate student) and **Anthony Perez** (ME undergraduate student), who were the primary initiators of the project. Beginning in January 2023 with the development of a robotic dog, their vision and hard work set the foundation for what would become a vital innovation in campus accessibility.
+
+During the summer of 2023, the team expanded from 2 to 4 members, and by December, it had grown to 11 members. Some of these contributors graduated in the winter of 2023, but their impact on the project endures. This project holds a special place for Christopher Morales, who is excited to see it continue and thrive, even as of August 2024, when the project has grown and advanced without his direct involvement!
+
+We also extend our gratitude to **Sergio Marquez** (Faculty) and **Dr. Wang** (Professor) for their invaluable guidance and support throughout the project's development. Together, their collective efforts have driven this project forward. A special thanks to **Sergio Marquez** for dedicating his own time and money to the project, even during the early stages when we had little to show, demonstrating his unwavering belief in our vision.
